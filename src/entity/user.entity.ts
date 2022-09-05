@@ -18,4 +18,7 @@ export class UserEntity {
   
     @Column({ default: true })
     isActive: boolean;
+
+    @Column()
+    perfil: string;
 }

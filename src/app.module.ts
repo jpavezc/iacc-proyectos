@@ -8,6 +8,9 @@ import { UserService } from './service/user.service';
 import { ConfigModule } from '@nestjs/config';
 import { BackupController } from './controller/backup.controller';
 import { BackupService } from './service/backup.service';
+import { BitacoraEntity } from './entity/bitacora.entity';
+import { BitacoraController } from './controller/bitacora.controller';
+import { BitacoraService } from './service/bitacora.service';
 
 
 @Module({
@@ -26,11 +29,12 @@ import { BackupService } from './service/backup.service';
 
     }),
     TypeOrmModule.forFeature([
-      UserEntity
+      UserEntity,
+      BitacoraEntity
     ]),
     HttpModule
   ],
-  controllers: [AppController, UserController, BackupController],
-  providers: [AppService, UserService, BackupService],
+  controllers: [AppController, UserController, BackupController, BitacoraController],
+  providers: [AppService, UserService, BackupService, BitacoraService],
 })
 export class AppModule {}

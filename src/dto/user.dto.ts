@@ -5,5 +5,6 @@ export class userDto {
     user: string;
     password : string;
     isActive: boolean;
+    perfil: string;
     
 }
