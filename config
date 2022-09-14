@@ -1,5 +1,0 @@
-DB_USER=postgres
-DB_NAME=iacc-test
-PGPASS=admin
-PORT=5432
-HOST=localhost

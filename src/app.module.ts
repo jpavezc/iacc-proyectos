@@ -11,23 +11,15 @@ import { BackupService } from './service/backup.service';
 import { BitacoraEntity } from './entity/bitacora.entity';
 import { BitacoraController } from './controller/bitacora.controller';
 import { BitacoraService } from './service/bitacora.service';
+import {config} from "dotenv";
+import ormconfig from 'ormconfig';
+const pg = require('pg');
 
 
+config()
 @Module({
   imports:
-    [ConfigModule.forRoot(
-      {envFilePath: 'C:/Users/juapa/OneDrive/Documentos/IACC/INTEGRACION DE SOFTWARE/tarea_1/iacc-tarea1/config'},
-    ),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      port: +process.env.PORT,
-      username: process.env.DB_USER,
-      password: process.env.PGPASS,
-      database: process.env.DB_NAME,
-      synchronize: true,
-      autoLoadEntities: true
-
-    }),
+    [TypeOrmModule.forRoot({...ormconfig, autoLoadEntities: true}),
     TypeOrmModule.forFeature([
       UserEntity,
       BitacoraEntity
